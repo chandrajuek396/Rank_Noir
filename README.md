@@ -71,7 +71,7 @@ Built as both a **hackathon submission** (TinyFish $2M Pre-Accelerator Hackathon
 | Freelance SEO consultant | $300 – $1,500 |
 | SEO agency retainer | $1,000 – $5,000 / month |
 | In-house SEO specialist | $4,000+ / month |
-| **RankNoir** | **Near zero** |
+| **RankNoir** | **< 100$** |
 
 ---
 
