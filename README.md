@@ -1,6 +1,6 @@
 <div align="center">
 
-# <img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Black%20diamond%20suit/3D/black_diamond_suit_3d.png" width="36" align="center" /> RankNoir
+◆ RankNoir
 
 ### Autonomous SEO Optimization — Silent. Relentless. Precise.
 
