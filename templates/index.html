@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RankNoir — Autonomous AI SEO Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="modal.css" />
+</head>
+
+<body>
+
+  <!-- ══════════ ANIMATED BACKGROUND ══════════ -->
+  <div class="global-bg" aria-hidden="true">
+    <canvas id="bgCanvas"></canvas>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+    <div class="noise-overlay"></div>
+  </div>
+
+
+  <!-- Main nav -->
+  <div class="nav-main">
+    <div class="nav-main-inner">
+      <a href="#" class="logo">
+        <span class="logo-diamond">◆</span>
+        <span class="logo-text">RankNoir</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="nav-item">Home</a>
+        <a href="#how" class="nav-item">How It Works</a>
+        <a href="#results" class="nav-item">Results</a>
+        <a href="#audience" class="nav-item">Careers</a>
+        <a href="#waitlist" class="nav-item nav-item--cta" id="start">Get Start →</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#how">How It Works</a>
+    <a href="#results">Results</a>
+    <a href="#audience">Who It's For</a>
+    <a href="#faq">FAQ</a>
+    <a href="#waitlist" class="mobile-cta">Get Start →</a>
+  </div>
+  </header>
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="hero" id="home">
+    <div class="hero-content container" id="heroInitial">
+      <div class="hero-eyebrow">Prototype of RankNoir</div>
+
+<div class="hero-powered">
+  <img src="https://www.tinyfish.ai/TF-Logos/Icon/SVG/TF_ICON.svg" alt="TinyFish Logo" />
+  <span>Powered by TinyFish</span>
+</div>
+      <h1 class="hero-title">
+   Autonomous SEO.<br />Zero effort required.
+</h1>
+
+<p class="hero-sub">
+  RankNoir deploys autonomous AI agents that crawl your entire site, uncover every ranking gap, 
+  and execute real fixes — directly into your GitHub, CMS, and live production environment. 
+  No dashboards. No agencies. No manual intervention.
+</p>
+
+<p class="hero-closer">
+  You don’t optimize SEO anymore.<br />
+  It optimizes itself.
+</p>
+      <div class="hero-scroll-hint">(Scroll Down)</div>
+    </div>
+    <div class="hero-demo container" id="heroDemo">
+
+  <h1 class="hero-demo-eyebrow">Agent Running Live</h1>
+
+  <div class="hero-screen glass-card">
+
+    <div id="agentLoader" class="agent-loader">
+  Connecting to agent...
+</div>
+    <div class="hero-screen-bar">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+      <span class="hero-screen-title">tinyfish-agent.live</span>
+    </div>
+
+    <div class="hero-screen-body">
+      <iframe
+  id="agentFrame"
+  title="Agent live stream"
+  sandbox="allow-same-origin allow-scripts"
+  style="
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0 0 18px 18px;
+    background: #000;
+    display: block;
+  "
+></iframe>
+      <div class="hero-screen-glow"></div>
+    </div>
+
+  </div>
+
+</div>
+
+<br>
+<br>
+  <div class="gs-cards">
+        <!-- Step 1: Optimization -->
+         <div id="result_container_1"  class="hidden">
+        <div class="gs-card glass-card reveal" id="step-1" style="transition-delay: 0ms;">
+          <div class="gs-card-head">
+            <span class="gs-badge">Result 1.</span>
+            <h3>Check & Optimize</h3>
+          </div>
+          <ul>
+            <li>Site is optimized using Advanced On-Page SEO.</li>
+            <li>Fully deployed to GitHub with automated CI/CD.</li>
+          </ul>
+          <div class="gs-screen">
+            <div class="gs-screen-bar">
+                <span class="sd r"></span><span class="sd y"></span><span class="sd g"></span>
+                <span>Audit Console</span>
+            </div>
+            <div class="gs-screen-body">
+              <div class="gsr"><span>Source</span><span>GitHub Repo</span></div>
+              <div class="gsr"><span>Deployment</span><span class="gok">✓ Success</span></div>
+              <div class="gsr"><span>Core Vitals</span><span class="gok">Optimized ↑</span></div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+
+        <!-- Step 2: Keywords -->
+         <div id="result_container_2" class="hidden" >
+        <div class="gs-card glass-card reveal" id="step-2" style="transition-delay: 200ms;">
+          <div class="gs-card-head">
+            <span class="gs-badge">Result 2.</span>
+            <h3>Extract Keywords</h3>
+          </div>
+          <ul>
+            <li>Extracted top 30 keywords for your specific niche.</li>
+            <li>Analyzed competitor density and search volume.</li>
+          </ul>
+          <div class="gs-screen">
+            <div class="gs-screen-bar">
+                <span class="sd r"></span><span class="sd y"></span><span class="sd g"></span>
+                <span>Keyword Explorer</span>
+            </div>
+            <div class="gs-screen-body">
+              <div class="gsr"><span>Niche</span><span>Industry Targeted</span></div>
+              <div class="gsr"><span>Total Keywords</span><span>30 Extracted</span></div>
+              <div class="gsr"><span>Difficulty</span><span class="gok">Low/Medium Rank</span></div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div id="result_container_3" class="hidden">
+          <div class="gs-card glass-card reveal" id="step-3" style="transition-delay: 400ms;">
+  
+          <div class="gs-card-head">
+            <span class="gs-badge">Result 3</span>
+            <h3>Generating Blog</h3>
+          </div>
+
+          <ul>
+            <li>Creating high-quality, SEO-optimized blog content.</li>
+            <li>Targeting relevant keywords to improve search rankings.</li>
+            <li>Structuring content for better readability and engagement.</li>
+          </ul>
+
+          <div class="gs-screen">
+            <div class="gs-screen-bar">
+              <span class="sd r"></span>
+              <span class="sd y"></span>
+              <span class="sd g"></span>
+              <span>Blog Generation Engine</span>
+            </div>
+
+            <div class="gs-screen-body">
+              <div class="gsr"><span>Status</span><span class="gor">⟳ Generating...</span></div>
+              <div class="gsr"><span>SEO Benefit</span><span>↑ Organic Traffic</span></div>
+              <div class="gsr"><span>Keyword Coverage</span><span class="gok">Expanding</span></div>
+              <div class="gsr"><span>Engagement</span><span class="gok">Improved ↑</span></div>
+            </div>
+          </div>
+
+        </div>
+        </div>
+
+        <!-- Step 3: Blog Publication -->
+         <div id="result_container_4" class="hidden">
+        <div class="gs-card glass-card reveal" id="step-3" style="transition-delay: 400ms;">
+          <div class="gs-card-head">
+            <span class="gs-badge">Final Result</span>
+            <h3>Publish & Link</h3>
+          </div>
+          <ul>
+            <li>Created a high-authority blog for content publication.</li>
+            <li>Internal linking structure optimized for link juice.</li>
+          </ul>
+          <div class="gs-screen">
+            <div class="gs-screen-bar">
+                <span class="sd r"></span><span class="sd y"></span><span class="sd g"></span>
+                <span>Publication Agent</span>
+            </div>
+            <div class="gs-screen-body">
+              <div class="gsr"><span>Blog Status</span><span class="gor">⟳ Live</span></div>
+              <div class="gsr"><span>Internal Links</span><span>Active</span></div>
+              <div class="gsr"><span>SEO Score</span><span class="gok">90+ ↑</span></div>
+            </div>
+          </div>
+          
+          <button id="launchAgentPreviewBtn" class="btn-primary" style="margin-top:1.2rem;width:100%;justify-content:center;">
+            View Optimized Website
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>
+        </div>
+        </div>
+    </div>
+<div class="hidden" id="refresh">
+    <button id="refreshBtn" class="btn-refresh" >
+  ⟳ New Optimization
+</button>
+</div>
+
+  </section>
+
+  <!-- ══════════ INTEGRATIONS STRIP ══════════ -->
+  <section class="integrations-strip">
+    <div class="container">
+      <p class="strip-label">Active Integrations:</p>
+      <div class="strip-items">
+        <span class="strip-item">GitHub Actions</span>
+        <span class="strip-dot">·</span>
+        <span class="strip-item">Google Page Speed</span>
+        <span class="strip-dot">·</span>
+        <span class="strip-item">TinyFish Web Agent API</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ LOGOS MARQUEE ══════════ -->
+  <section class="trust-section">
+    <div class="container">
+      <p class="trust-label">Built for the future of growth teams</p>
+
+      <p class="trust-sub">
+        RankNoir is being designed to seamlessly integrate with the most trusted tools in the industry — 
+        enabling a powerful, unified SEO workflow. These integrations are part of our upcoming roadmap 
+        and will be introduced progressively.
+      </p>
+    </div>
+    <div class="logos-track-wrap">
+      <div class="logos-track">
+
+        <span class="logo-badge">
+          <img src="assets/4klogos/github.png" alt="GitHub">
+        </span>
+
+        <span class="logo-badge">
+          <img src="assets/4klogos/versel.png" alt="Vercel">
+        </span>
+
+        <span class="logo-badge">
+          <img src="assets/4klogos/netlify2.o.png" alt="Netlify">
+        </span>
+
+        <span class="logo-badge">
+          <img src="assets/4klogos/wordpress2.o.png" alt="WordPress">
+        </span>
+
+        <span class="logo-badge">
+          <img src="assets/4klogos/webflow.png" alt="Webflow">
+        </span>
+
+        <span class="logo-badge">
+          <img src="assets/4klogos/nextjs.png" alt="Next.js">
+        </span>
+
+        <span class="logo-badge">
+          <img src="assets/4klogos/ahref2.png" alt="Ahrefs">
+        </span>
+
+        <span class="logo-badge">
+          <img src="assets/4klogos/semrush.png" alt="SEMrush">
+        </span>
+
+        <span class="logo-badge">
+          <img src="assets/4klogos/moz2.png" alt="Moz">
+        </span>
+
+        <span class="logo-badge">
+          <img src="assets/4klogos/frog.png" alt="Screaming Frog">
+        </span>
+
+        <!-- duplicate for infinite scroll -->
+        <span class="logo-badge"><img src="assets/4klogos/github.png" alt="GitHub"></span>
+        <span class="logo-badge"><img src="assets/4klogos/versel.png" alt="Vercel"></span>
+        <span class="logo-badge"><img src="assets/4klogos/netlify2.o.png" alt="Netlify"></span>
+        <span class="logo-badge"><img src="assets/4klogos/wordpress2.o.png" alt="WordPress"></span>
+        <span class="logo-badge"><img src="assets/4klogos/webflow.png" alt="Webflow"></span>
+        <span class="logo-badge"><img src="assets/4klogos/nextjs.png" alt="Next.js"></span>
+        <span class="logo-badge"><img src="assets/4klogos/ahref2.png" alt="Ahrefs"></span>
+        <span class="logo-badge"><img src="assets/4klogos/semrush.png" alt="SEMrush"></span>
+        <span class="logo-badge"><img src="assets/4klogos/moz2.png" alt="Moz"></span>
+        <span class="logo-badge"><img src="assets/4klogos/frog.png" alt="Screaming Frog"></span>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ HOW IT WORKS — Numbered Steps ══════════ -->
+  <section class="section steps-section" id="how">
+    <div class="container">
+
+      <div class="step-block">
+        <div class="step-num-label">01.</div>
+        <div class="step-block-row">
+          <div class="step-text">
+            <h2 class="step-h2">Describe your site. Or connect it directly.</h2>
+            <p class="step-p">Enter your URL or express your intent. RankNoir pulls live data from your site,
+              cross-references Top 3 SEO analyzers, and builds a full picture of what's broken and what's costing you
+              traffic.</p>
+          </div>
+          <div class="step-card-side">
+            <div class="ui-card glass-card">
+              <div class="ui-card-head">
+                <div class="uic-dot orange"></div>
+                <span class="uic-title">RankNoir Analysis</span>
+                <span class="uic-badge">Running</span>
+              </div>
+              <div class="ui-card-body">
+                <div class="uic-row"><span class="uic-lbl">Target URL</span><span
+                    class="uic-val">https://yoursite.com</span></div>
+                <div class="uic-divider"></div>
+                <div class="uic-tags"><span class="uic-tag">3 Analyzers</span><span class="uic-tag">Live
+                    Crawl</span><span class="uic-tag">Schema</span></div>
+                <div class="uic-progress-wrap">
+                  <div class="uic-progress-bar progress-72"></div>
+                </div>
+                <div class="uic-progress-lbl">Analyzing… 72% complete</div>
+              </div>
+              <div class="ui-card-foot">
+                <span class="conn-lbl">Active Connections:</span>
+                <span class="conn-pill">GitHub</span>
+                <span class="conn-pill">Ahrefs</span>
+                <span class="conn-pill">GSC</span>
+                <span class="conn-ctx">Context: 47 Pages</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-num-label">02.</div>
+        <div class="step-block-row reverse">
+          <div class="step-text">
+            <h2 class="step-h2">RankNoir plans the fix</h2>
+            <p class="step-p">RankNoir generates a structured repair plan tailored to your site's architecture and
+              priority level. High-impact fixes — like missing meta descriptions and broken schema — are attacked first.
+            </p>
+          </div>
+          <div class="step-card-side">
+            <div class="ui-card glass-card plan-card">
+              <div class="plan-step-row">
+                <div class="psn">Step 1.</div>
+                <div class="psb"><strong>Fix Meta Tags &amp; Title Structure</strong>
+                  <p>Rewrite 23 missing/duplicate meta descriptions.</p>
+                  <div class="ptags"><span class="ptag hi">High Priority</span><span class="ptag blue">+14 pts</span>
+                  </div>
+                </div>
+              </div>
+              <div class="plan-step-row">
+                <div class="psn">Step 2.</div>
+                <div class="psb"><strong>Schema Markup Injection</strong>
+                  <p>Add Article + BreadcrumbList schema to 41 pages.</p>
+                  <div class="ptags"><span class="ptag med">Medium</span><span class="ptag blue">+8 Rich Results</span>
+                  </div>
+                </div>
+              </div>
+              <div class="plan-step-row">
+                <div class="psn">Step 3.</div>
+                <div class="psb"><strong>Performance &amp; Core Web Vitals</strong>
+                  <p>Minify CSS/JS bundles. Fix LCP render blocking.</p>
+                  <div class="ptags"><span class="ptag med">Medium</span><span class="ptag blue">+11 CWV</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-num-label">03.</div>
+        <div class="step-block-row">
+          <div class="step-text">
+            <h2 class="step-h2">Fixes deployed in seconds</h2>
+            <p class="step-p">RankNoir fetches your actual HTML, surgically applies every fix, and commits directly to
+              your GitHub repository. No FTP. No manual edits. No dev hours burned.</p>
+          </div>
+          <div class="step-card-side">
+            <div class="ui-card glass-card deploy-card">
+              <div class="deploy-row"><span class="dep-icon">✦</span>
+                <div class="dep-txt"><strong>Meta Tags Committed</strong><span>feat/seo-meta-fix · 2 mins ago</span>
+                </div><span class="dep-status ok">Deployed</span>
+              </div>
+              <div class="deploy-row"><span class="dep-icon">✦</span>
+                <div class="dep-txt"><strong>Schema Markup Applied</strong><span>41 pages · JSON-LD injected</span>
+                </div><span class="dep-status ok">Live</span>
+              </div>
+              <div class="deploy-row"><span class="dep-icon dim">◌</span>
+                <div class="dep-txt"><strong>Performance Bundle</strong><span>CSS/JS minification in progress…</span>
+                </div><span class="dep-status run">Running</span>
+              </div>
+              <div class="dep-commit"><span class="dep-hash">a3f1c8d</span><span class="dep-msg">fix: seo meta + schema
+                  — RankNoir agent</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-num-label">04.</div>
+        <div class="step-block-row reverse">
+          <div class="step-text">
+            <h2 class="step-h2">All outputs are always verified</h2>
+            <p class="step-p">RankNoir re-crawls your site after every deployment. If scores don't improve, the agent
+              goes back in automatically. Verification isn't an afterthought — it's the loop.</p>
+          </div>
+          <div class="step-card-side">
+            <div class="ui-card glass-card verify-card">
+              <div class="verify-head"><span>🔍</span><span>Post-Deploy Verification</span></div>
+              <div class="verify-row ok"><span class="vdot g"></span>Meta tags verified — 23/23 pages</div>
+              <div class="verify-row ok"><span class="vdot g"></span>Schema validation passed — 0 errors</div>
+              <div class="verify-row ok"><span class="vdot g"></span>Core Web Vitals improved — LCP 1.8s</div>
+              <div class="verify-row pend"><span class="vdot y"></span>Content keywords re-indexing…</div>
+              <div class="verify-scores">
+                <div class="vscore before"><span class="vsn">42</span><span class="vsl">Before</span></div>
+                <div class="vsarrow">→</div>
+                <div class="vscore after"><span class="vsn gold">92</span><span class="vsl">After</span></div>
+                <span class="vsbadge">+50 pts · 1 run · 0 humans</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════ AGENTIC SEO OS ══════════ -->
+  <section class="section features-section" id="features">
+    <div class="container">
+      <div class="feat-header">
+        <span class="feat-arrow-l">←</span>
+        <div>
+          <h2 class="feat-title">The agentic SEO OS</h2>
+          <p class="feat-subtitle">Your Site's SEO, Supercharged</p>
+        </div>
+        <span class="feat-arrow-r">→</span>
+      </div>
+      <div class="feat-grid">
+        <div class="feat-card glass-card">
+          <div class="feat-tag-title">Self-Healing SEO<br /><span class="feat-tag-sub">(Autofix + Git
+              Integration)</span></div>
+          <p>Detects regressions, rewrites broken tags, and automatically creates GitHub pull requests to patch failing
+            SEO across your entire site.</p>
+        </div>
+        <div class="feat-card glass-card">
+          <div class="feat-tag-title">Generate Content &amp; Fixes<br /><span class="feat-tag-sub">(Auto Code &amp;
+              Content Engine)</span></div>
+          <p>Generate optimized blog posts, fix alt attributes, rewrite meta descriptions and publish directly to your
+            CMS or repo.</p>
+        </div>
+        <div class="feat-card glass-card">
+          <div class="feat-tag-title">Compiler Layer</div>
+          <p>Agent validates every change before deployment — score simulations and dry-run verification. Zero broken
+            deploys.</p>
+        </div>
+      </div>
+      <div class="feat-os-card glass-card">
+        <div class="feat-os-left">
+          <h3>SEO Data OS &amp; Observability</h3>
+          <p>Manage all your SEO metrics, fix queues, and deployment status across every page — in one centralized
+            command center.</p>
+        </div>
+        <div class="feat-os-table">
+          <div class="ost-row header"><span>Page</span><span>Score</span><span>Issues</span><span>Status</span></div>
+          <div class="ost-row"><span>/</span><span class="hi">91</span><span>0</span><span class="s-ok">✦ Live</span>
+          </div>
+          <div class="ost-row"><span>/blog</span><span class="mid">74</span><span>3</span><span class="s-ok">✦
+              Live</span></div>
+          <div class="ost-row"><span>/pricing</span><span class="lo">48</span><span>11</span><span class="s-fix">⟳
+              Fixing</span></div>
+          <div class="ost-row"><span>/about</span><span class="mid">67</span><span>5</span><span class="s-ok">✦
+              Live</span></div>
+          <div class="ost-row"><span>/features</span><span class="hi">83</span><span>2</span><span class="s-ok">✦
+              Live</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ GETTING STARTED ══════════ -->
+  <section class="section gs-section" id="start">
+    <div class="container">
+      <h2 class="section-title center">Getting started is easy</h2>
+      <div class="gs-nav">
+        <div class="gs-step-item-num">1</div>
+        <div class="gs-step-line"></div>
+        <div class="gs-step-lbl">connect<br />your site</div>
+        <span class="gs-sep">·</span>
+        <div class="gs-step-item-num">2</div>
+        <div class="gs-step-line"></div>
+        <div class="gs-step-lbl">define<br />targets</div>
+        <span class="gs-sep">·</span>
+        <div class="gs-step-item-num">3</div>
+        <div class="gs-step-line"></div>
+        <div class="gs-step-lbl">invoke<br />agent</div>
+      </div>
+      <div class="gs-cards">
+        <div class="gs-card glass-card">
+          <div class="gs-card-head"><span class="gs-badge">Step 1.</span>
+            <h3>Connect your site</h3>
+          </div>
+          <ul>
+            <li>Enter your website URL or connect via GitHub.</li>
+            <li>Configure access permissions and crawl depth.</li>
+          </ul>
+          <div class="gs-screen">
+            <div class="gs-screen-bar"><span class="sd r"></span><span class="sd y"></span><span
+                class="sd g"></span><span>Connect Site</span></div>
+            <div class="gs-screen-body">
+              <div class="gsr"><span>URL</span><span>https://yoursite.com</span></div>
+              <div class="gsr"><span>GitHub</span><span class="gok">✓ Connected</span></div>
+              <div class="gsr"><span>Pages</span><span>184 found</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="gs-card glass-card">
+          <div class="gs-card-head"><span class="gs-badge">Step 2.</span>
+            <h3>Define your targets</h3>
+          </div>
+          <ul>
+            <li>Set priority pages and target keywords.</li>
+            <li>Define fix rules and deployment preferences.</li>
+          </ul>
+          <div class="gs-screen">
+            <div class="gs-screen-bar"><span class="sd r"></span><span class="sd y"></span><span
+                class="sd g"></span><span>Target Config</span></div>
+            <div class="gs-screen-body">
+              <div class="gsr"><span>Focus</span><span>/, /blog, /pricing</span></div>
+              <div class="gsr"><span>Keywords</span><span>100 loaded</span></div>
+              <div class="gsr"><span>Auto-deploy</span><span class="gok">✓ Enabled</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="gs-card glass-card">
+          <div class="gs-card-head"><span class="gs-badge">Step 3.</span>
+            <h3>Call in the Agent</h3>
+          </div>
+          <ul>
+            <li>Agent reads your site, plans every fix.</li>
+            <li>Deploys, verifies, and loops until scores improve.</li>
+          </ul>
+          <div class="gs-screen">
+            <div class="gs-screen-bar"><span class="sd r"></span><span class="sd y"></span><span
+                class="sd g"></span><span>Agent Running</span></div>
+            <div class="gs-screen-body">
+              <div class="gsr"><span>Status</span><span class="gor">⟳ Active</span></div>
+              <div class="gsr"><span>Fixes</span><span>38 / 42 done</span></div>
+              <div class="gsr"><span>Score</span><span class="gok">42 → 92 ↑</span></div>
+            </div>
+          </div>
+          <!-- Launch Agent modal trigger -->
+          <button
+            id="launchAgentPreviewBtn"
+            class="btn-primary"
+            onclick="window.rnOpenModal && window.rnOpenModal('launchPreviewOverlay')"
+            style="margin-top:1.2rem;width:100%;justify-content:center;"
+            aria-label="See how the Launch Agent works"
+          >
+            Launch Agent
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SECURITY ══════════ -->
+  <section class="section security-section">
+    <div class="container">
+      <div class="security-wrap glass-card">
+        <div class="sec-icon-wrap">🔒</div>
+        <h2>Built-in security and compliance</h2>
+        <p class="sec-desc">RankNoir never stores your raw content. Every deployment runs through a verified dry-run
+          first. All credentials are accessed securely at runtime — never in code.</p>
+        <div class="sec-badges">
+          <div class="sec-badge glass-card"><strong>Secure Connections</strong>
+            <p>Encrypted credentials, OAuth</p>
+          </div>
+          <div class="sec-badge glass-card"><strong>No Live Data Touch</strong>
+            <p>Dry-runs validate first</p>
+          </div>
+          <div class="sec-badge glass-card"><strong>Isolated Environments</strong>
+            <p>Containerized per run</p>
+          </div>
+          <div class="sec-badge glass-card"><strong>Compliance-Ready</strong>
+            <p>SOC2 Type 2 aligned</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ FAQ ══════════ -->
+  <section class="section faq-section" id="faq">
+    <div class="container narrow">
+      <h2 class="section-title">Frequently asked questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How is RankNoir different from tools like Ahrefs or SEMrush?<span
+              class="faq-arrow">↓</span></button>
+          <div class="faq-a">
+            <p>Those tools tell you what's wrong. RankNoir actually fixes it. We don't hand you a report — we complete
+              the work autonomously, end-to-end, live on your site.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Does RankNoir store or access my raw content?<span
+              class="faq-arrow">↓</span></button>
+          <div class="faq-a">
+            <p>No. RankNoir operates on HTML structure and SEO metadata — never storing raw content. Everything runs
+              through verified dry-run pipelines first.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Does RankNoir touch my actual codebase?<span
+              class="faq-arrow">↓</span></button>
+          <div class="faq-a">
+            <p>Yes — surgically. RankNoir fetches your HTML, applies targeted fixes, and commits directly to your GitHub
+              repo via GitHub Actions. Review everything via pull requests before it goes live.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What tech powers RankNoir under the hood?<span
+              class="faq-arrow">↓</span></button>
+          <div class="faq-a">
+            <p>RankNoir is powered by the TinyFish Web Agent API — an intelligent agent framework that navigates the
+              live web the way a human engineer would, but at AI speed and scale.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">When is RankNoir launching publicly?<span
+              class="faq-arrow">↓</span></button>
+          <div class="faq-a">
+            <p>
+  This is an early prototype of RankNoir, showcasing the core vision and capabilities. 
+  We're actively refining and expanding it.
+</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ FINAL CTA ══════════ -->
+  <section class="cta-final" id="waitlist">
+    <div class="container narrow cta-final-inner">
+      <div class="cta-diamond">◆</div>
+      <p class="cta-eyebrow">Get Started with RankNoir</p>
+      <h2 class="cta-h2">Autonomous AI systems<br />for SEO-driven teams</h2>
+      <a href="#" class="btn-primary cta-main-btn" >
+        Get Start
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </a>
+      <form class="waitlist-form" onsubmit="handleSubmit(event)">
+        <p class="wl-label">Sign up to stay up to date with all the latest development with RankNoir</p>
+
+        <p class="cta-disclaimer">No credit card. No commitment. Just better rankings.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><span class="logo-diamond">◆</span><span class="logo-text">RankNoir</span></div>
+        <p class="footer-tagline">Crawls in the Dark. Ranks in the Light.</p>
+        <p class="footer-built">Built with TinyFish Web Agent API · Powered by Autonomous AI</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Discover</h4><a href="#home">Home</a><a href="#how">How It Works</a><a href="#results">Results</a><a
+            href="#audience">Careers</a><a href="#waitlist">Sign up </a>
+        </div>
+        <div class="footer-col">
+          <h4>contact</h4><a href="mailto:hello@ranknoir.io">hello@ranknoir.io</a>
+        </div>
+        <div class="footer-col">
+          <h4>legals</h4><a href="#">privacy policy</a><a href="#">cookie policy</a><a href="#">terms of use</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>RankNoir <strong>©</strong>2026</p>
+      <div class="footer-legal"><a href="#">privacy policy</a><a href="#">terms of use</a></div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- ══════════ LAUNCH AGENT PREVIEW MODAL ══════════ -->
+  <div class="rn-overlay" id="launchPreviewOverlay" role="dialog" aria-modal="true" aria-label="Agent Preview">
+    <div class="rn-modal" style="max-width:540px; padding:3rem; display:flex; justify-content:center; align-items:center;">
+      <button class="rn-close" onclick="rnCloseModal('launchPreviewOverlay')" aria-label="Close">✕</button>
+
+      <img
+        src="assets/4klogos/nextjs.png"
+        alt="Next.js framework logo"
+        style="width:100%; max-height:220px; object-fit:contain; opacity:0.95;"
+        loading="lazy"
+      />
+    </div>
+  </div>
+
+  <!-- ══════════ ONBOARDING MODALS ══════════ -->
+
+  <!-- ── Modal 1: Connect Your GitHub ──────── -->
+  <div class="rn-overlay" id="rnOverlay1" role="dialog" aria-modal="true" aria-label="Connect Your GitHub">
+    <div class="rn-modal">
+      <button class="rn-close" onclick="rnCloseModal('rnOverlay1')" aria-label="Close">✕</button>
+      <div class="rn-step-badge">Step 1 of 3</div>
+      <div class="rn-modal-icon">⬡</div>
+      <h2 class="rn-modal-title">Connect Your GitHub</h2>
+      <p class="rn-modal-desc">Link your repository to start optimizing your project. RankNoir will read, fix, and
+        commit directly.</p>
+      <div class="rn-gh-row">
+        <span class="rn-gh-icon">🐙</span>
+        <div class="rn-gh-text">
+          <strong>GitHub Integration</strong>
+          <span>OAuth · Secure · Read &amp; Write access</span>
+        </div>
+      </div>
+      <button class="rn-btn rn-btn-primary" id="rnConnectGitHubBtn" onclick="rnOnConnectGitHub()">
+        Connect GitHub →
+      </button>
+      <div class="rn-progress">
+        <span class="rn-dot rn-dot-active"></span>
+        <span class="rn-dot"></span>
+        <span class="rn-dot"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Modal 2: Repository Config ─────────── -->
+  <div class="rn-overlay" id="rnOverlay2" role="dialog" aria-modal="true" aria-label="Repository Configuration">
+    <div class="rn-modal">
+      <button class="rn-close" onclick="rnCloseModal('rnOverlay2')" aria-label="Close">✕</button>
+      <div class="rn-step-badge">Step 2 of 3</div>
+      <div class="rn-modal-icon">⚙</div>
+      <h2 class="rn-modal-title">Repository Details</h2>
+      <p class="rn-modal-desc">Fill in your GitHub credentials and the target website so RankNoir knows where to work.
+      </p>
+      <div class="rn-field-group">
+        <div class="rn-field">
+          <label for="rnApiKey">GitHub API Key</label>
+          <input type="password" id="rnApiKey" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off" />
+        </div>
+        <div class="rn-field">
+          <label for="rnRepoPath">Repository Path</label>
+          <input type="text" id="rnRepoPath" placeholder="username/repository" />
+        </div>
+        <div class="rn-field">
+          <label for="rnFilePath">File Path</label>
+          <input type="text" id="rnFilePath" placeholder="src/index.html" />
+        </div>
+        <div class="rn-field">
+          <label for="rnSiteUrl">Website URL</label>
+          <input type="url" id="rnSiteUrl" placeholder="https://yoursite.com" />
+        </div>
+      </div>
+      <button class="rn-btn rn-btn-primary" id="rnConnectBtn" onclick="rnOnConnect()">
+        Connect
+      </button>
+      <div class="rn-progress">
+        <span class="rn-dot"></span>
+        <span class="rn-dot rn-dot-active"></span>
+        <span class="rn-dot"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Modal 3: Launch Agent ───────────────── -->
+  <div class="rn-overlay" id="rnOverlay3" role="dialog" aria-modal="true" aria-label="Launch Agent">
+    <div class="rn-modal">
+      <button class="rn-close" onclick="rnCloseModal('rnOverlay3')" aria-label="Close">✕</button>
+      <div class="rn-step-badge">Step 3 of 3</div>
+      <div class="rn-modal-icon">🚀</div>
+      <h2 class="rn-modal-title">Set Your Target</h2>
+      <p class="rn-modal-desc">Tell RankNoir what to rank for. The agent will crawl, plan, fix, and deploy optimizations
+        automatically.</p>
+      <div class="rn-field-group">
+        <div class="rn-field">
+          <label for="rnTargetKeyword">Target Keyword</label>
+          <input type="text" id="rnTargetKeyword" placeholder="e.g. AI SEO tool for developers" />
+        </div>
+      </div>
+      <button class="rn-btn rn-btn-primary" id="rnLaunchAgentBtn" onclick="rnOnLaunchAgent()">
+        Launch Agent 🚀
+      </button>
+      <div class="rn-progress">
+        <span class="rn-dot"></span>
+        <span class="rn-dot"></span>
+        <span class="rn-dot rn-dot-active"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Success Popup ───────────────────────── -->
+  <div class="rn-success-popup" id="rnSuccessPopup" role="status" aria-live="polite"></div>
+
+  <script src="modal.js"></script>
+</body>
+
+</html>
